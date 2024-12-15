@@ -8,61 +8,94 @@
   <style>
     body {
       font-family: 'Times New Roman', Times, serif;
-      background-color: #f8f9fa;
+      background-color: #ea70e6;
     }
 
     /* Navbar Styling */
     .navbar {
       background-color: black;
+      padding: 10px;
+      height: 80px;
+      line-height: 80px;
     }
     .navbar-brand {
       font-size: 1.5rem;
       font-weight: bold;
       color: rgb(255, 255, 255);
+      padding: 0 15px;
     }
     .nav-link {
       color: white;
       margin-right: 15px;
       font-weight: bold;
+      text-transform: uppercase;
+      padding: 0 15px;
     }
-    .nav-link:hover, .nav-link.active {
-      color: #ddd;
+    .nav-link.active {
+      color: white;
       text-decoration: underline;
     }
+    .nav-link:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    
+    body {
+  padding-top: 80px;
+}
+    /* Home Section Styling */
+    .home-section {
+  text-align: center;
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-    /* Hero Section Styling */
-    .hero-section {
-      text-align: center;
-      margin: 50px 0;
-    }
-    .hero-section img {
-      border-radius: 5%;
-      width: 200px;
-      height: 300px;
-      object-fit: cover;
-      text-align: end;
-    }
-    .btn-cv {
-      background-color: black;
-      color: white;
-      font-weight: bold;
-      padding: 10px 20px;
-      border-radius: 5px;
-      border: none;
-      text-transform: uppercase;
-      margin-top: 20px;
-    }
-    .btn-cv:hover {
-      background-color: #000000;
-    }
-    .hero-title {
-      font-size: 2.5rem;
+.home-section img {
+  border-radius: 5%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+    .home-title {
+      font-size: 40px;
       margin: 20px 0;
     }
-    .hero-subtitle {
+
+    .home-subtitle {
       font-size: 1.5rem;
       font-style: italic;
     }
+
+    .btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adds spacing between buttons */
+  margin-top: 20px; /* Adds spacing above the buttons */
+}
+
+.btn-cv {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  text-transform: uppercase;
+}
+
+.btn-cv a {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-cv:hover {
+  background-color: #333;
+}
 
     /* Section Titles */
     .section-title {
@@ -74,17 +107,8 @@
       text-transform: uppercase;
     }
 
-    /* About Section */
-    .content-section img {
-  width: 200px; 
-  height: 200px; 
-  border-radius: 50%; 
-  object-fit: fill;
-}
-
-
-/* Image Grid */
-.portfolio-grid img {
+    /* Image Grid */
+    .portfolio-grid img {
       width: 100%;
       height: auto;
       object-fit: cover;
@@ -92,9 +116,44 @@
       margin-bottom: 20px;
     }
 
-.portfolio-grid img:hover {
-  transform: scale(1.05); 
-}
+    .portfolio-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Contact Section */
+    #contact {
+      background-color: black;
+      color: white;
+      border-radius: 15px;
+      padding: 40px;
+      margin-top: 20px;
+    }
+    #contact .form-control {
+      background-color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      text-transform: none;
+      font-weight: bold;
+    }
+    #contact .form-control::placeholder {
+      color: black;
+      font-style: italic;
+    }
+    #contact .btn-dark {
+      background-color: white;
+      color: black;
+      border: 2px solid white;
+      border-radius: 50px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    #contact .btn-dark:hover {
+      background-color: black;
+      color: white;
+      border: 2px solid white;
+    }
 
     /* Footer Styling */
     .footer {
@@ -107,137 +166,144 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="#">NP</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">NP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-  
+  </div>
+</nav>
 
 <!-- Home Section -->
 <div class="container hero-section">
   <div class="row align-items-center">
     <div class="col-md-6 text-center">
-      <img src="Portflio - Website/Profile 1.jpg" alt="Profile Image" class="img-fluid">
+      <img src="Portflio - Website/Profile 1.png" alt="Profile Image" class="img-fluid">
     </div>
     <div class="col-md-6">
       <h1 class="hero-title">Hi,</h1>
       <h2 class="hero-subtitle">I Am Niharika Pandit</h2>
-      
-      <!--  CV Buttons  -->
-      <div class="text-center">
+      <div class="btn-container">
         <button class="btn-cv">
-          <a href="Portflio - Website/My CV.pdf" target="_blank" style="color: white; text-decoration: none;">View CV</a>
+          <a href="Portflio - Website/My CV.pdf" target="_blank">View CV</a>
         </button>
         <button class="btn-cv">
-          <a href="Portflio - Website/My CV.pdf" download="Niharika_Pandit_CV.pdf" style="color: white; text-decoration: none;">Download CV</a>
+          <a href="Portflio - Website/My CV.pdf" download="Niharika_Pandit_CV.pdf">Download CV</a>
         </button>
-      </div>
+      </div>           
     </div>
   </div>
 </div>
 
-  <!-- About Section -->
-  <div id="about" class="container content-section">
-    <div class="row">
-      <div class="col-md-6">
-        <h2 class="section-title">About Me</h2>
-        <p>Hi, I am a design student at ATLAS/ISDI. I'm passionate about graphic design and excited to contribute to your company's success. Designing has helped me develop a growth mindset, problem-solving, analytical, and spatial thinking skills. I can offer my expertise in visual storytelling and content creation to help grow your business.</p>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="Portflio - Website/Profile 2.jpg" alt="Profile Image">
-      </div>
+<!-- About Me Section -->
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="section-title">ABOUT ME</h2>
+      <p>
+        Hi, I am a design student at ATLAS/ISDI. I'm passionate about graphic design and excited to contribute to your company's success. Designing has helped me develop a growth mindset, problem-solving, analytical, and spatial thinking skills. I can offer my expertise in visual storytelling and content creation to help grow your business.
+      </p>
+      <h3 class="section-title mt-4">EXPERIENCE</h3>
+      <p class="section-content">
+        <em>Best Photography Award for Gopi Birla Model United Nations (GBMUN) — 2022</em>
+      </p>
     </div>
-  </div>
 
-  <!-- Education & Experience Section -->
-  <div class="container content-section">
-    <div class="row">
-      <div class="col-md-6">
-        <h2 class="section-title">Education</h2>
-        <p>Atlas ISDI: Second Year Student (2nd Term) CBSE</p>
-        <p>12th Standard: First Class - 2023 CBSE</p>
-        <p>10th Standard: First Class - 2021 CBSE</p>
-      </div>
-      <div class="col-md-6">
-        <h2 class="section-title">Experience</h2>
-        <p>Best Photography Award for Gopi Birla Model United Nations (GBMUN) --- 2022</p>
-      </div>
+    <!-- Education and Skills Section -->
+    <div class="col-md-6">
+      <h2 class="section-title">EDUCATION</h2>
+      <p class="section-content">
+        <em>Atlas ISDI: Second Year Student (2nd Term) CBSE</em><br>
+        <em>12th Standard: First Class - 2023 CBSE</em><br>
+        <em>10th Standard: First Class - 2021 CBSE</em>
+      </p>
+
+      <h3 class="section-title mt-4">MY SKILLS</h3>
+      <ul class="skills-list">
+        <li>1. Typography, layout, and color theory.</li>
+        <li>2. Adobe Creative Suite.</li>
+        <li>3. Photoshop.</li>
+        <li>4. Illustrator.</li>
+        <li>5. After Effects.</li>
+      </ul>
     </div>
-  </div>
-
-  <!-- Skills Section -->
-<div id="skills" class="container content-section">
-  <h2 class="section-title">My Skills</h2>
-  <div class="text-center">
-    <ul style="list-style: none; padding: 0;">
-      <li>Typography, layout, and color theory.</li>
-      <li>Adobe Creative Suite.</li>
-      <li>Photoshop.</li>
-      <li>Illustrator.</li>
-      <li>After Effects.</li>
-    </ul>
   </div>
 </div>
 
-
-  <!-- Portfolio Section -->
-  <div id="portfolio" class="container content-section">
-    <h2 class="section-title">My Digital Artworks</h2>
-    <div class="row portfolio-grid">
-      <div class="col-md-3"><img src="Portflio - Website/Dig1.png" alt="Artwork 1"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig2.png" alt="Artwork 2"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig3.png" alt="Artwork 3"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig4.png" alt="Artwork 4"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig5.png" alt="Artwork 5"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig6.jpg" alt="Artwork 6"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig7.jpg" alt="Artwork 7"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig8.png" alt="Artwork 8"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig9.png" alt="Artwork 9"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig10.png" alt="Artwork 10"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig11.png" alt="Artwork 11"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig12.jpg" alt="Artwork 12"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig13.png" alt="Artwork 13"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig14.png" alt="Artwork 14"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig15.png" alt="Artwork 15"></div>
-      <div class="col-md-3"><img src="Portflio - Website/Dig16.png" alt="Artwork 16"></div>
-    </div>
-
-    <h2 class="section-title">My Photography Work</h2>
-    <div class="row portfolio-grid">
-      <div class="col-md-4"><img src="Portflio - Website/Photo1.png" alt="Photography 1"></div>
-      <div class="col-md-4"><img src="Portflio - Website/Photo2.png" alt="Photography 2"></div>
-      <div class="col-md-4"><img src="Portflio - Website/Photo3.png" alt="Photography 3"></div>
-      <div class="col-md-4"><img src="Portflio - Website/Photo4.png" alt="Photography 5"></div>
-      <div class="col-md-4"><img src="Portflio - Website/Photo5.png" alt="Photography 6"></div>
-    </div>
+<!-- Portfolio Section -->
+<div id="portfolio" class="container content-section">
+  <h2 class="section-title">My Digital Artworks</h2>
+  <div class="row portfolio-grid">
+    <div class="col-md-3"><img src="Portflio - Website/Dig1.png" alt="Artwork 1"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig2.png" alt="Artwork 2"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig3.png" alt="Artwork 3"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig4.png" alt="Artwork 4"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig5.png" alt="Artwork 5"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig6.png" alt="Artwork 6"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig7.png" alt="Artwork 7"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig8.png" alt="Artwork 8"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig9.png" alt="Artwork 9"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig10.png" alt="Artwork 10"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig11.png" alt="Artwork 11"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig12.png" alt="Artwork 12"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig13.png" alt="Artwork 13"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig14.png" alt="Artwork 14"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig15.png" alt="Artwork 15"></div>
+    <div class="col-md-3"><img src="Portflio - Website/Dig16.png" alt="Artwork 16"></div>
   </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    <p>&copy; 2024 Niharika Pandit. All Rights Reserved.</p>
+  <h2 class="section-title">My Photography Work</h2>
+  <div class="row portfolio-grid">
+    <div class="col-md-4"><img src="Portflio - Website/Photo1.png" alt="Photography 1"></div>
+    <div class="col-md-4"><img src="Portflio - Website/Photo2.png" alt="Photography 2"></div>
+    <div class="col-md-4"><img src="Portflio - Website/Photo3.png" alt="Photography 3"></div>
+    <div class="col-md-4"><img src="Portflio - Website/Photo4.png" alt="Photography 4"></div>
+    <div class="col-md-4"><img src="Portflio - Website/Photo5.png" alt="Photography 5"></div>
+    <div class="col-md-4"><img src="Portflio - Website/Photo6.jpg.png" alt="Photography 5"></div>
   </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Contact Section -->
+<div id="contact" class="container text-center py-5">
+  <h2 class="fw-bold">Get In Touch</h2>
+  <form class="mt-4">
+    <div class="mb-3">
+      <input type="text" class="form-control form-control-lg" placeholder="Your Name" required>
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control form-control-lg" placeholder="Your Email" required>
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control form-control-lg" placeholder="Your Message" required>
+    </div>
+    <button type="submit" class="btn btn-dark btn-lg px-5">Submit</button>
+  </form>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&copy; 2024 Niharika Pandit. All Rights Reserved.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
